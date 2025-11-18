@@ -1,4 +1,5 @@
 export const Phase = {
+  AUTH: 'auth',
   LANDING: 'landing',
   PROPOSAL: 'proposal',
   ACCEPTANCE: 'acceptance',
@@ -18,7 +19,7 @@ export type AppAction =
   | { type: 'RESET_STATE' };
 
 export const initialState: AppState = {
-  currentPhase: Phase.LANDING,
+  currentPhase: Phase.AUTH,
   isTransitioning: false,
 };
 

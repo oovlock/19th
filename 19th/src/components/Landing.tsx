@@ -1,27 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAppContext } from '../hooks';
 import { Phase } from '../hooks';
 import { useParticleSystem } from '../hooks';
+import AuthModal from './AuthModal';
+import SeedAnimation from './SeedAnimation';
 import '../styles/globals.css';
 
-const Landing: React.FC = () => {
+interface LandingProps {
+  showAuthModal?: boolean;
+}
+
+const Landing: React.FC<LandingProps> = ({ showAuthModal = false }) => {
   const { state, transitionToPhase } = useAppContext();
   const { canvasRef } = useParticleSystem(true);
+  const [showSeedAnimation, setShowSeedAnimation] = useState(false);
 
   const handleGetStarted = () => {
     transitionToPhase(Phase.PROPOSAL);
   };
 
-  return (
-    <div className="min-h-screen relative flex items-center justify-center">
-      {/* Particle Canvas */}
-      <canvas ref={canvasRef} className="particle-container" />
+  const handleAuthSuccess = () => {
+    setShowSeedAnimation(true);
+  };
 
-      {/* Main Content */}
-      <div className="content-overlay text-center px-4 fade-in">
-        <h1 className="playfair text-6xl md:text-8xl font-bold mb-6 text-gray-800">
-          Welcome
-        </h1>
+  const handleSeedAnimationComplete = () => {
+    setShowSeedAnimation(false);
+  };
+
+  return (
+    <>
+      <div className="min-h-screen relative flex items-center justify-center">
+        {/* Particle Canvas */}
+        <canvas ref={canvasRef} className="particle-container" />
+
+        {/* Main Content */}
+        <div className="content-overlay text-center px-4 fade-in">
+          <h1 className="playfair text-6xl md:text-8xl font-bold mb-6 text-gray-800">
+            Welcome
+          </h1>
 
         <div className="max-w-2xl mx-auto mb-8">
           <p className="dancing text-3xl md:text-4xl mb-4 text-gray-700">
@@ -137,23 +153,32 @@ const Landing: React.FC = () => {
           </p>
         </div>
 
-        {/* Decorative Elements */}
-        <div className="mt-12 flex justify-center space-x-8">
-          <div
-            className="w-2 h-2 bg-gold rounded-full animate-pulse"
-            style={{ animationDelay: '0ms' }}
-          ></div>
-          <div
-            className="w-2 h-2 bg-pink rounded-full animate-pulse"
-            style={{ animationDelay: '75ms' }}
-          ></div>
-          <div
-            className="w-2 h-2 bg-light-pink rounded-full animate-pulse"
-            style={{ animationDelay: '150ms' }}
-          ></div>
+          {/* Decorative Elements */}
+          <div className="mt-12 flex justify-center space-x-8">
+            <div
+              className="w-2 h-2 bg-gold rounded-full animate-pulse"
+              style={{ animationDelay: '0ms' }}
+            ></div>
+            <div
+              className="w-2 h-2 bg-pink rounded-full animate-pulse"
+              style={{ animationDelay: '75ms' }}
+            ></div>
+            <div
+              className="w-2 h-2 bg-light-pink rounded-full animate-pulse"
+              style={{ animationDelay: '150ms' }}
+            ></div>
+          </div>
         </div>
       </div>
-    </div>
+
+      {/* Auth Modal */}
+      {showAuthModal && <AuthModal onSuccess={handleAuthSuccess} />}
+
+      {/* Seed Animation */}
+      {showSeedAnimation && (
+        <SeedAnimation onComplete={handleSeedAnimationComplete} />
+      )}
+    </>
   );
 };
 
