@@ -10,6 +10,8 @@ const AppContent: React.FC = () => {
 
   const renderCurrentPhase = () => {
     switch (state.currentPhase) {
+      case Phase.AUTH:
+        return <Landing showAuthModal={true} />;
       case Phase.LANDING:
         return <Landing />;
       case Phase.PROPOSAL:
