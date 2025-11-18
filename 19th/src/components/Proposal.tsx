@@ -26,10 +26,11 @@ const Proposal: React.FC = () => {
           onClick={handleBack}
           style={{
             background: 'linear-gradient(135deg, #ffb880, #ffc799, #ffd6b3)',
-            boxShadow: '0 10px 25px -5px rgba(255, 184, 128, 0.5)',
-            borderColor: 'rgba(255, 229, 204, 0.3)',
+            boxShadow: '0 15px 35px -10px rgba(255, 184, 128, 0.6)',
+            borderColor: 'rgba(255, 229, 204, 0.4)',
+            borderRadius: '9999px',
           }}
-          className="group relative inline-flex items-center justify-center px-10 py-5 text-lg font-semibold text-white transition-all duration-700 ease-out rounded-2xl hover:scale-105 overflow-hidden border-2 backdrop-blur-sm"
+          className="group relative inline-flex items-center justify-center px-12 py-6 text-lg font-bold text-white transition-all duration-700 ease-out hover:scale-105 overflow-hidden border-2 backdrop-blur-sm"
         >
           {/* Animated background gradient */}
           <span
@@ -58,7 +59,7 @@ const Proposal: React.FC = () => {
                 d="M10 19l-7-7m0 0l7-7m-7 7h18"
               />
             </svg>
-            <span className="tracking-wide">Back to Landing</span>
+            <span className="tracking-wide font-dancing">Back to Landing</span>
           </span>
         </button>
       </div>

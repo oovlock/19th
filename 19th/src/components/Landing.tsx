@@ -34,18 +34,19 @@ const Landing: React.FC = () => {
             onClick={handleGetStarted}
             style={{
               background: 'linear-gradient(135deg, #ffb880, #ffc799, #ffd6b3)',
-              boxShadow: '0 10px 25px -5px rgba(255, 184, 128, 0.5)',
-              borderColor: 'rgba(255, 229, 204, 0.3)',
+              boxShadow: '0 15px 35px -10px rgba(255, 184, 128, 0.6)',
+              borderColor: 'rgba(255, 229, 204, 0.4)',
+              borderRadius: '9999px',
             }}
-            className="group relative inline-flex items-center justify-center px-14 py-7 text-xl font-semibold text-white transition-all duration-700 ease-out rounded-3xl hover:scale-110 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:shadow-none overflow-hidden border-2 backdrop-blur-sm"
+            className="group relative inline-flex items-center justify-center px-16 py-8 text-xl font-bold text-white transition-all duration-700 ease-out hover:scale-110 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:shadow-none overflow-hidden border-2 backdrop-blur-sm"
             disabled={state.isTransitioning}
             onMouseEnter={(e) => {
               e.currentTarget.style.boxShadow =
-                '0 20px 40px -10px rgba(255, 184, 128, 0.5)';
+                '0 25px 50px -15px rgba(255, 184, 128, 0.7)';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.boxShadow =
-                '0 10px 25px -5px rgba(255, 184, 128, 0.5)';
+                '0 15px 35px -10px rgba(255, 184, 128, 0.6)';
             }}
           >
             {/* Animated background gradient */}
@@ -95,11 +96,15 @@ const Landing: React.FC = () => {
                     </svg>
                     <span className="absolute inset-0 rounded-full bg-white/20 animate-ping"></span>
                   </div>
-                  <span className="tracking-wide">Preparing...</span>
+                  <span className="tracking-wide font-dancing">
+                    Preparing...
+                  </span>
                 </>
               ) : (
                 <>
-                  <span className="tracking-wide">Begin Your Journey</span>
+                  <span className="tracking-wide font-dancing">
+                    Begin Your Journey
+                  </span>
                   <div className="flex items-center space-x-1">
                     <svg
                       className="w-6 h-6 transition-all duration-300 group-hover:translate-x-2 group-hover:scale-110"

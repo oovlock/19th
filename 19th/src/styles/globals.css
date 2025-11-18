@@ -94,6 +94,10 @@ body {
   font-family: var(--font-dancing);
 }
 
+.font-dancing {
+  font-family: var(--font-dancing);
+}
+
 /* Utility Classes */
 .text-center {
   text-align: center;
