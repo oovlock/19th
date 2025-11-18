@@ -32,63 +32,78 @@ const Landing: React.FC = () => {
         <div className="space-y-6">
           <button
             onClick={handleGetStarted}
-            className="group relative inline-flex items-center justify-center px-12 py-6 text-lg font-medium text-white transition-all duration-500 ease-out bg-gradient-to-r from-pink via-pink to-light-pink rounded-full shadow-2xl hover:shadow-pink/25 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 overflow-hidden"
+            className="group relative inline-flex items-center justify-center px-14 py-7 text-xl font-semibold text-white transition-all duration-700 ease-out bg-gradient-to-br from-peach-400 via-peach-300 to-peach-200 rounded-3xl shadow-2xl hover:shadow-peach-300/50 hover:scale-110 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:shadow-none overflow-hidden border-2 border-peach-100/30 backdrop-blur-sm"
             disabled={state.isTransitioning}
           >
-            {/* Button background shine effect */}
-            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out"></span>
+            {/* Animated background gradient */}
+            <span className="absolute inset-0 bg-gradient-to-br from-peach-200/40 via-transparent to-peach-400/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
 
-            {/* Button text */}
-            <span className="relative z-10 flex items-center space-x-3">
+            {/* Shimmer effect */}
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/60 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1500 ease-out"></span>
+
+            {/* Pulsing ring animation */}
+            <span className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-peach-300 to-peach-400 opacity-0 group-hover:opacity-30 animate-pulse"></span>
+
+            {/* Button content */}
+            <span className="relative z-10 flex items-center space-x-4">
               {state.isTransitioning ? (
                 <>
-                  <svg
-                    className="animate-spin h-5 w-5"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle
-                      className="opacity-25"
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="currentColor"
-                      strokeWidth="4"
-                    ></circle>
-                    <path
-                      className="opacity-75"
-                      fill="currentColor"
-                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    ></path>
-                  </svg>
-                  <span>Preparing...</span>
+                  <div className="relative">
+                    <svg
+                      className="animate-spin h-6 w-6"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-30"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                      ></circle>
+                      <path
+                        className="opacity-80"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      ></path>
+                    </svg>
+                    <span className="absolute inset-0 rounded-full bg-white/20 animate-ping"></span>
+                  </div>
+                  <span className="tracking-wide">Preparing...</span>
                 </>
               ) : (
                 <>
-                  <span>Begin Your Journey</span>
-                  <svg
-                    className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 7l5 5m0 0l-5 5m5-5H6"
-                    />
-                  </svg>
+                  <span className="tracking-wide">Begin Your Journey</span>
+                  <div className="flex items-center space-x-1">
+                    <svg
+                      className="w-6 h-6 transition-all duration-300 group-hover:translate-x-2 group-hover:scale-110"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
+                    </svg>
+                    <svg
+                      className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M9.404 2.902a1 1 0 01.732 1.698L6.025 10.5H13a7 7 0 017 7v2a1 1 0 11-2 0v-2a5 5 0 00-5-5H6.025l4.111 5.9a1 1 0 11-1.632 1.198L3.336 13.7a2 2 0 010-3.4l5.068-7.398z" />
+                    </svg>
+                  </div>
                 </>
               )}
             </span>
-
-            {/* Decorative ring animation */}
-            <span className="absolute inset-0 rounded-full border-2 border-pink/20 animate-ping"></span>
           </button>
 
-          <p className="text-gray-600 italic text-base font-light lora">
+          <p className="text-gray-600 italic text-base font-light lora animate-pulse">
             Take a deep breath and click when you're ready
           </p>
         </div>
