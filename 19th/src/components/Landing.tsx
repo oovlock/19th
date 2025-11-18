@@ -32,17 +32,41 @@ const Landing: React.FC = () => {
         <div className="space-y-6">
           <button
             onClick={handleGetStarted}
-            className="group relative inline-flex items-center justify-center px-14 py-7 text-xl font-semibold text-white transition-all duration-700 ease-out bg-gradient-to-br from-peach-400 via-peach-300 to-peach-200 rounded-3xl shadow-2xl hover:shadow-peach-300/50 hover:scale-110 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:shadow-none overflow-hidden border-2 border-peach-100/30 backdrop-blur-sm"
+            style={{
+              background: 'linear-gradient(135deg, #ffb880, #ffc799, #ffd6b3)',
+              boxShadow: '0 10px 25px -5px rgba(255, 184, 128, 0.5)',
+              borderColor: 'rgba(255, 229, 204, 0.3)',
+            }}
+            className="group relative inline-flex items-center justify-center px-14 py-7 text-xl font-semibold text-white transition-all duration-700 ease-out rounded-3xl hover:scale-110 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:shadow-none overflow-hidden border-2 backdrop-blur-sm"
             disabled={state.isTransitioning}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.boxShadow =
+                '0 20px 40px -10px rgba(255, 184, 128, 0.5)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.boxShadow =
+                '0 10px 25px -5px rgba(255, 184, 128, 0.5)';
+            }}
           >
             {/* Animated background gradient */}
-            <span className="absolute inset-0 bg-gradient-to-br from-peach-200/40 via-transparent to-peach-400/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+            <span
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              style={{
+                background:
+                  'linear-gradient(135deg, rgba(255, 214, 179, 0.4), transparent, rgba(255, 184, 128, 0.4))',
+              }}
+            ></span>
 
             {/* Shimmer effect */}
             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/60 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1500 ease-out"></span>
 
             {/* Pulsing ring animation */}
-            <span className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-peach-300 to-peach-400 opacity-0 group-hover:opacity-30 animate-pulse"></span>
+            <span
+              className="absolute -inset-1 rounded-3xl opacity-0 group-hover:opacity-30 animate-pulse"
+              style={{
+                background: 'linear-gradient(135deg, #ffc799, #ffb880)',
+              }}
+            ></span>
 
             {/* Button content */}
             <span className="relative z-10 flex items-center space-x-4">
