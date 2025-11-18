@@ -24,9 +24,43 @@ const Proposal: React.FC = () => {
 
         <button
           onClick={handleBack}
-          className="bg-dusty-rose hover:bg-pink text-white px-6 py-3 rounded-full text-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl"
+          style={{
+            background: 'linear-gradient(135deg, #ffb880, #ffc799, #ffd6b3)',
+            boxShadow: '0 15px 35px -10px rgba(255, 184, 128, 0.6)',
+            borderColor: 'rgba(255, 229, 204, 0.4)',
+            borderRadius: '9999px',
+          }}
+          className="group relative inline-flex items-center justify-center px-12 py-6 text-lg font-bold text-white transition-all duration-700 ease-out hover:scale-105 overflow-hidden border-2 backdrop-blur-sm"
         >
-          Back to Landing
+          {/* Animated background gradient */}
+          <span
+            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            style={{
+              background:
+                'linear-gradient(135deg, rgba(255, 214, 179, 0.4), transparent, rgba(255, 184, 128, 0.4))',
+            }}
+          ></span>
+
+          {/* Shimmer effect */}
+          <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/60 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1500 ease-out"></span>
+
+          {/* Button content */}
+          <span className="relative z-10 flex items-center space-x-3">
+            <svg
+              className="w-5 h-5 transition-all duration-300 group-hover:-translate-x-1 group-hover:scale-110"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
+            </svg>
+            <span className="tracking-wide font-dancing">Back to Landing</span>
+          </span>
         </button>
       </div>
     </div>

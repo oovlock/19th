@@ -8,6 +8,13 @@
   --pink: #ffc0cb;
   --dusty-rose: #b76e79;
 
+  /* Peach Tones */
+  --peach-100: #ffe5cc;
+  --peach-200: #ffd6b3;
+  --peach-300: #ffc799;
+  --peach-400: #ffb880;
+  --peach-500: #ffa966;
+
   /* Accent Colors */
   --gold: #ffd700;
   --forest-green: #228b22;
@@ -84,6 +91,10 @@ body {
 }
 
 .dancing {
+  font-family: var(--font-dancing);
+}
+
+.font-dancing {
   font-family: var(--font-dancing);
 }
 
